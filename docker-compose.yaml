@@ -1,0 +1,21 @@
+version: "3.1"
+
+services:
+  myapp:
+    container_name: nodeapp
+    build: .
+    ports:
+      - "3334:3334"
+
+  db:
+    build:
+      context: ./Docker
+      dockerfile: db.Dockerfile
+    restart: always
+    environment:
+      POSTGRES_USERNAME: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./var/pgdata:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"
