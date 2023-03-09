@@ -1,4 +1,4 @@
 node_modules
+var
 # Keep environment variables out of version control
 .env
-var
